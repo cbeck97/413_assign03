@@ -23,6 +23,30 @@ namespace assignment_03.Controllers
             return View();
         }
 
+        public IActionResult Podcasts()
+        {
+            return View();
+        }
+
+        [HttpGet("AddMovie")]
+        public IActionResult AddMovie()
+        {
+            return View();
+        }
+
+        [HttpPost("AddMovie")]
+        public IActionResult AddMovie(AddMovie Movie)
+        {
+            TempStorage.AddMovie(Movie);
+
+            return View();
+        }
+
+        public IActionResult MovieList()
+        {
+            return View(TempStorage.Movies);
+        }
+
         public IActionResult Privacy()
         {
             return View();
