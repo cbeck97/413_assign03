@@ -37,7 +37,11 @@ namespace assignment_03.Controllers
         [HttpPost("AddMovie")]
         public IActionResult AddMovie(AddMovie Movie)
         {
-            TempStorage.AddMovie(Movie);
+            //makes sure that all of the data is valid before adding it to the list
+            if (ModelState.IsValid)
+            {
+                TempStorage.AddMovie(Movie);
+            }
 
             return View();
         }
